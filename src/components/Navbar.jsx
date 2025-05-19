@@ -12,10 +12,12 @@ const menuItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // Prevent body scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
+  // Close menu on Escape key
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape" && open) setOpen(false);
@@ -55,7 +57,7 @@ export default function Navbar() {
         aria-label="Toggle menu"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="md:hidden flex flex-col justify-center items-center cursor-pointer z-60 w-8 h-8 focus:outline-none"
+        className="md:hidden flex flex-col justify-center items-center cursor-pointer z-50 w-8 h-8 focus:outline-none"
       >
         <div
           className={`w-7 h-1 bg-white mb-1 rounded transition-transform duration-300 ${
@@ -76,16 +78,17 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <ul
-        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center justify-center space-y-8 py-0 transition-transform duration-300 z-50 ${
+        className={`md:hidden fixed top-0 left-0 w-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-20 transition-transform duration-300 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
+        style={{ zIndex: 40 }}
       >
         {menuItems.map(({ name, link }) => (
           <li key={name}>
             <a
               href={link}
               onClick={() => setOpen(false)}
-              className="text-2xl font-semibold text-white hover:text-indigo-400 transition"
+              className="text-xl font-semibold hover:text-indigo-400"
             >
               {name}
             </a>
