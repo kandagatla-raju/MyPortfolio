@@ -27,61 +27,64 @@ export default function Navbar() {
   }, [open]);
 
   return (
-    <nav
-      role="navigation"
-      className="bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white px-6 py-4 flex justify-between items-center shadow-lg fixed w-full top-0 z-50"
-    >
-      <a
-        href="#hero"
-        className="text-2xl font-bold tracking-wide hover:text-indigo-400 transition"
+    <>
+      <nav
+        role="navigation"
+        className="bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white px-6 py-4 flex justify-between items-center shadow-lg fixed w-full top-0 z-50"
+        style={{ height: "56px" }} // Fix nav height for layout
       >
-        MyPortfolio
-      </a>
+        <a
+          href="#hero"
+          className="text-2xl font-bold tracking-wide hover:text-indigo-400 transition"
+          onClick={() => setOpen(false)}
+        >
+          MyPortfolio
+        </a>
 
-      {/* Desktop Menu */}
-      <ul className="hidden md:flex space-x-8 font-semibold">
-        {menuItems.map(({ name, link }) => (
-          <li key={name}>
-            <a
-              href={link}
-              className="hover:text-indigo-400 transition transform hover:scale-110"
-            >
-              {name}
-            </a>
-          </li>
-        ))}
-      </ul>
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-8 font-semibold">
+          {menuItems.map(({ name, link }) => (
+            <li key={name}>
+              <a
+                href={link}
+                className="hover:text-indigo-400 transition transform hover:scale-110"
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
 
-      {/* Hamburger Button */}
-      <button
-        aria-label="Toggle menu"
-        aria-expanded={open}
-        onClick={() => setOpen(!open)}
-        className="md:hidden flex flex-col justify-center items-center cursor-pointer z-50 w-8 h-8 focus:outline-none"
-      >
-        <div
-          className={`w-7 h-1 bg-white mb-1 rounded transition-transform duration-300 ${
-            open ? "rotate-45 translate-y-2" : ""
-          }`}
-        />
-        <div
-          className={`w-7 h-1 bg-white mb-1 rounded transition-opacity duration-300 ${
-            open ? "opacity-0" : "opacity-100"
-          }`}
-        />
-        <div
-          className={`w-7 h-1 bg-white rounded transition-transform duration-300 ${
-            open ? "-rotate-45 -translate-y-2" : ""
-          }`}
-        />
-      </button>
+        {/* Hamburger Button */}
+        <button
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+          className="md:hidden flex flex-col justify-center items-center cursor-pointer z-50 w-8 h-8 focus:outline-none"
+        >
+          <div
+            className={`w-7 h-1 bg-white mb-1 rounded transition-transform duration-300 ${
+              open ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <div
+            className={`w-7 h-1 bg-white mb-1 rounded transition-opacity duration-300 ${
+              open ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <div
+            className={`w-7 h-1 bg-white rounded transition-transform duration-300 ${
+              open ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
+      </nav>
 
       {/* Mobile Menu */}
       <ul
-        className={`md:hidden fixed top-0 left-0 w-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-20 transition-transform duration-300 ${
+        className={`md:hidden fixed top-[56px] left-0 w-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-6 transition-transform duration-300 shadow-lg z-40 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
-        style={{ zIndex: 40 }}
       >
         {menuItems.map(({ name, link }) => (
           <li key={name}>
@@ -95,6 +98,9 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-    </nav>
+
+      {/* Spacer div to prevent content hiding behind fixed navbar */}
+      <div className="h-[56px] md:hidden" />
+    </>
   );
 }
