@@ -57,7 +57,7 @@ export default function Education() {
               <span className="font-semibold">CGPA:</span> {gpa}
             </p>
             {details && (
-              <p className="text-indigo-300 text-sm sm:text-base">{details}</p>
+              
             )}
           </div>
         ))}
