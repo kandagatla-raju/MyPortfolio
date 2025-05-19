@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+     "start": "react-scripts start",
+  
   },
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.5.0",
+    "react-simple-typewriter": "^5.0.1",
     "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
@@ -20,16 +23,17 @@
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
-    "autoprefixer": "^9.8.8",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
-    "postcss": "^7.0.39",
+    "postcss": "^8.4.31",
+    "rollup": "^3.29.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
-    "vite": "^6.3.5"
+    "vite": "^4.5.0"
   },
   "engines": {
-  "node": "18.x"
-}
+    "node": "18.x"
+  }
 }

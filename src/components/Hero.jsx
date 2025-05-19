@@ -1,5 +1,5 @@
 import React from "react";
-import Typical from "react-typical";
+import { Typewriter } from "react-simple-typewriter";
 
 export default function Hero() {
   return (
@@ -7,15 +7,19 @@ export default function Hero() {
       <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
         Hi, I’m{" "}
         <span className="text-indigo-400 whitespace-nowrap">
-          <Typical
-            steps={[
-              "Kandagatla Raju", 3000,
-              "a Full Stack Developer", 3000,
-              "a Problem Solver", 3000,
-              "a Tech Enthusiast", 3000,
+          <Typewriter
+            words={[
+              "Kandagatla Raju",
+              "a Full Stack Developer",
+              "a Problem Solver",
+              "a Tech Enthusiast",
             ]}
-            loop={Infinity}
-            wrapper="span"
+            loop={0} // Set to 0 for infinite loop
+            cursor
+            cursorStyle="_"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1500}
           />
         </span>
       </h1>
