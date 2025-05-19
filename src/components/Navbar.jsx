@@ -12,12 +12,12 @@ const menuItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // Prevent body scroll when menu is open
+  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  // Close menu on Escape key
+  // Close on ESC
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape" && open) setOpen(false);
@@ -28,10 +28,9 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Fixed top navbar */}
       <nav
-        role="navigation"
         className="bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 text-white px-6 py-4 flex justify-between items-center shadow-lg fixed w-full top-0 z-50"
-        style={{ height: "56px" }} // Fix nav height for layout
       >
         <a
           href="#hero"
@@ -55,7 +54,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Hamburger Button */}
+        {/* Hamburger Button (mobile) */}
         <button
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -80,27 +79,29 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Mobile Menu */}
-      <ul
-        className={`md:hidden fixed top-[56px] left-0 w-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-6 transition-transform duration-300 shadow-lg z-40 ${
+      {/* Mobile Menu - slides from top under navbar */}
+      <div
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 z-40 transform transition-transform duration-300 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {menuItems.map(({ name, link }) => (
-          <li key={name}>
-            <a
-              href={link}
-              onClick={() => setOpen(false)}
-              className="text-xl font-semibold hover:text-indigo-400"
-            >
-              {name}
-            </a>
-          </li>
-        ))}
-      </ul>
+        <ul className="flex flex-col items-center justify-center space-y-6 h-full pt-20 text-xl font-semibold">
+          {menuItems.map(({ name, link }) => (
+            <li key={name}>
+              <a
+                href={link}
+                onClick={() => setOpen(false)}
+                className="hover:text-indigo-400"
+              >
+                {name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      {/* Spacer div to prevent content hiding behind fixed navbar */}
-      <div className="h-[56px] md:hidden" />
+      {/* Push content down below navbar height */}
+      <div className="h-16 md:hidden" />
     </>
   );
 }
