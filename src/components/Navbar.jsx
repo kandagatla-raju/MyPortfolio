@@ -17,7 +17,7 @@ export default function Navbar() {
     document.body.style.overflow = open ? "hidden" : "";
   }, [open]);
 
-  // Close menu on Escape key
+  // Close menu on Escape key press
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape" && open) setOpen(false);
@@ -57,7 +57,7 @@ export default function Navbar() {
         aria-label="Toggle menu"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="md:hidden flex flex-col justify-center items-center cursor-pointer z-50 w-8 h-8 focus:outline-none"
+        className="md:hidden flex flex-col justify-center items-center cursor-pointer z-60 w-8 h-8 focus:outline-none"
       >
         <div
           className={`w-7 h-1 bg-white mb-1 rounded transition-transform duration-300 ${
@@ -76,9 +76,17 @@ export default function Navbar() {
         />
       </button>
 
+      {/* Overlay behind menu when open */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+        />
+      )}
+
       {/* Mobile Menu */}
       <ul
-        className={`md:hidden fixed top-16 left-0 w-full bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-8 transition-transform duration-300 ${
+        className={`md:hidden fixed top-0 left-0 w-full h-screen bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 flex flex-col items-center space-y-6 py-20 transition-transform duration-300 z-50 ${
           open ? "translate-y-0" : "-translate-y-full"
         }`}
       >
