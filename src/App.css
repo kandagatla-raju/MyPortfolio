@@ -1,0 +1,13 @@
+/* src/App.css */
+.custom-title {
+  font-family: 'Courier New', Courier, monospace;
+  color: darkblue;
+}
+section {
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
