@@ -53,7 +53,7 @@ const projectsData = [
     title: "Startup Success Prediction",
     description:
       "An AI-powered system to predict the success probability of startups using historical data and machine learning models.",
-    tech: ["Python", "Machine Learning", "Pandas"],
+    tech: ["Python", "AI/ML"],
     link: "https://github.com/kandagatla-raju/Startup-success-prediction",
     github: "https://github.com/kandagatla-raju/Startup-success-prediction",
   },
