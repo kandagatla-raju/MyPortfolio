@@ -1,9 +1,9 @@
 import React from "react";
-import profileImg from "../assets/IMG_20250426_181936.png";
+import profileImg from "../assets/profile.png";
 
 export default function AboutMe({
   name = "Kandagatla Raju",
-  bio1 = "Hello! I’m Kandagatla Raju, a passionate full-stack developer with expertise in building modern, scalable web applications. I specialize in React, Node.js, and AI/ML integrations, always eager to learn and solve challenging problems.",
+  bio1 = "Hello! I’m Kandagatla Raju, a passionate full-stack developer with expertise in building modern, scalable web applications. I specialize in React, Node.js, and AI/ML integrations, always eager to learn and solve challenging problems. I’m also an AI enthusiast, passionate about integrating AI technologies to create innovative solutions.",
   bio2 = "Outside of coding, I love exploring new technologies, contributing to open source projects, and improving my skills to create impactful digital experiences.",
   resumeLink = "https://drive.google.com/file/d/1bxWNKGvJwTOZs4AHMUW7CgFZk-yLnqYm/view?usp=sharing",
 }) {
@@ -13,7 +13,7 @@ export default function AboutMe({
       className="max-w-6xl mx-auto px-6 py-12 md:py-16 mt-12 bg-gradient-to-r from-blue-900 via-purple-900 to-indigo-900 rounded-3xl shadow-2xl text-white flex flex-col md:flex-row items-center gap-8 md:gap-12"
     >
       {/* Image Section */}
-      <div className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
+      <div className="flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
         <img
           src={profileImg}
           alt={`${name} profile`}
